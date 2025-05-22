@@ -3,13 +3,9 @@ package com.cursosant.fragmentnavigationapp
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
+import android.widget.Button
 
 
 class FragmentHome : Fragment(R.layout.fragment_home) {
@@ -32,7 +28,7 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
                 .commit()
         }
 
-        view.findViewById<Button>(R.id.btn_profile).setOnClickListener {
+        view.findViewById<Button>(R.id.btn_enviar).setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, FragmentProfile())
                 .addToBackStack(null)
@@ -46,11 +42,7 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
                 .commit()
         }
 
-        view.findViewById<Button>(R.id.btn_exit).setOnClickListener {
-            Toast.makeText(requireContext(), "Bye", Toast.LENGTH_SHORT).show()
-            requireActivity().finish()
         }
 
     }
 
-}
