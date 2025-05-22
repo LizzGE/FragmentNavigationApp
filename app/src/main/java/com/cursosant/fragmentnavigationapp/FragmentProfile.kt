@@ -2,13 +2,16 @@ package com.cursosant.fragmentnavigationapp
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.View
 import android.widget.Button
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 
 class FragmentProfile : Fragment(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         val nombreRecibido = arguments?.getString("nombre")
 
@@ -26,5 +29,8 @@ class FragmentProfile : Fragment(R.layout.fragment_profile) {
                 .addToBackStack(null)
                 .commit()
         }
+
+        Toast.makeText(requireContext(), "Bienvenido a tu perfil", Toast.LENGTH_SHORT).show()
+
     }
 }

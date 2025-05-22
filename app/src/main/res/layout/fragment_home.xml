@@ -9,6 +9,7 @@
     tools:context=".FragmentHome">
 
 
+
     <EditText
         android:id="@+id/etx_name"
         android:layout_width="match_parent"

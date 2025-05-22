@@ -5,6 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
+
 
 class FragmentHome : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -25,6 +31,26 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
                 .addToBackStack("Hola")
                 .commit()
         }
+
+        view.findViewById<Button>(R.id.btn_profile).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, FragmentProfile())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        view.findViewById<Button>(R.id.btn_settings).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, FragmentSettings())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        view.findViewById<Button>(R.id.btn_exit).setOnClickListener {
+            Toast.makeText(requireContext(), "Bye", Toast.LENGTH_SHORT).show()
+            requireActivity().finish()
+        }
+
     }
 
 }
